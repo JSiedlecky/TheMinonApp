@@ -9,26 +9,45 @@ namespace TheMinonApp
     class Minon
     {
         //FIELDS
-        public string Name;
-        public int AmountOfEyes;
-        public int AmountOfBananas;
-        public happiness Happiness;
+        private string Name;
+        private int AmountOfEyes;
+        private int AmountOfBananas;
+        private happiness Happiness;
 
+        //CONSTRUCTORS
+        public Minon(string nName, int nAoE, int nAoB)
+        {
+            this.Name               = nName;
+            this.AmountOfEyes       = nAoE;
+            this.AmountOfBananas    = nAoB;
+            this.Happiness          = SetHappiness(nAoB);
+        }
 
-        //METHODS
+        //PUBLIC METHODS 
         public void FullInfo()
         {
-            string info = "Minon " + this.Name + " has " + this.AmountOfEyes + " eyes, " + this.AmountOfBananas + " bananas and is " + this.Happiness + " about that";
+            string info = "Minon " + this.Name + " has " + this.AmountOfEyes + " eyes, " + this.AmountOfBananas + " bananas and is " + this.Happiness + " becouse of that.";
             Console.WriteLine("*");
             Console.WriteLine(info);
             Console.WriteLine("*");
+        }
+
+        //PRIVATE METHODS
+        private happiness SetHappiness(int AoB)
+        {
+            if (AoB < 1) return happiness.sad;
+            if (AoB >= 1 && AoB < 3) return happiness.happy;
+            if (AoB >= 3) return happiness.euphoric;
+
+            return happiness.sad;
         }
     }
 
     enum happiness
     {
-        sad, 
-        mediocre,
-        happy
+        sad, //less then 1 banana
+        happy, //between 1 and 3 bananas
+        euphoric //3 and more bananas
     }
 }
+
