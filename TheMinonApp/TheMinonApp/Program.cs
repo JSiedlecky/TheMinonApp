@@ -12,6 +12,12 @@ namespace TheMinonApp
         {
             Minon janek = new Minon("Janek",2,5);
             janek.FullInfo();
+            janek.EatBanana();
+            janek.FullInfo();
+            janek.EatBanana();
+            janek.FullInfo();
+            janek.EatBanana();
+            janek.FullInfo();
             Console.ReadLine();
         }
     }

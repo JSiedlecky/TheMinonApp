@@ -17,10 +17,10 @@ namespace TheMinonApp
         //CONSTRUCTORS
         public Minon(string nName, int nAoE, int nAoB)
         {
-            this.Name               = nName;
-            this.AmountOfEyes       = nAoE;
-            this.AmountOfBananas    = nAoB;
-            this.Happiness          = SetHappiness(nAoB);
+            this.Name = nName;
+            this.AmountOfEyes = nAoE;
+            this.AmountOfBananas = nAoB;
+            this.Happiness = SetHappiness(nAoB);
         }
 
         //PUBLIC METHODS 
@@ -30,6 +30,21 @@ namespace TheMinonApp
             Console.WriteLine("*");
             Console.WriteLine(info);
             Console.WriteLine("*");
+        }
+
+        public void EatBanana()
+        {
+            if (this.AmountOfBananas >= 1) this.AmountOfBananas--;
+            else this.AmountOfBananas = 0;
+
+            this.Happiness = SetHappiness(this.AmountOfBananas);
+        }
+
+        public void EatAllBananas()
+        {
+            this.AmountOfBananas = 0;
+
+            this.Happiness = SetHappiness(this.AmountOfBananas);
         }
 
         //PRIVATE METHODS
