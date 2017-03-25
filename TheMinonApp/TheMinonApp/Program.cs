@@ -10,6 +10,7 @@ namespace TheMinonApp
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
